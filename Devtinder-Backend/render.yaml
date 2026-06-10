@@ -1,0 +1,17 @@
+services:
+  - type: web
+    name: devtinder-backend
+    env: node
+    region: oregon
+    plan: free
+    buildCommand: npm install
+    startCommand: npm start
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: MONGO_URI
+        sync: false        # set manually in Render dashboard
+      - key: jwt_secret
+        sync: false        # set manually in Render dashboard
+      - key: CLIENT_URL
+        sync: false        # set to your Vercel frontend URL (e.g. https://devtinder.vercel.app)
